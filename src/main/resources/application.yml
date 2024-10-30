@@ -1,0 +1,6 @@
+com:
+  young:
+    feature:
+      aop: true
+    config:
+      key: 1234
