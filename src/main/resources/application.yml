@@ -1,6 +1,12 @@
-com:
-  young:
-    feature:
-      aop: true
-    config:
-      key: 1234
+
+featureControl:
+  aop: true
+config:
+  key: 1234
+
+spring:
+  datasource:
+    url: "jdbc:mysql://localhost:3306/slog?useSSL=false&serverTimezone=UTC"
+    driver-class-name: "com.mysql.cj.jdbc.Driver"
+    username: root
+    password: jfhjyjin

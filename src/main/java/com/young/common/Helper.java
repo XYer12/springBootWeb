@@ -6,12 +6,15 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.util.Optional;
 import java.util.UUID;
 
-public class helper {
+public class Helper {
 
-    public String getTraceId(HttpServletRequest req, HttpServletResponse resp) {
-        String traceId = req.getHeader("traceId");
+    public static String getTraceId(HttpServletRequest req) {
+        String traceId = (String) req.getAttribute("traceId");
         if (traceId == null) {
-            traceId = (String) req.getAttribute("traceId");
+            traceId = req.getHeader("x-trace-id");
+            if (traceId != null && !traceId.isEmpty()) {
+                req.setAttribute("traceId", traceId);
+            }
         }
         if (traceId == null) {
             traceId = UUID.randomUUID().toString();
